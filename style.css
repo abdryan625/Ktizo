@@ -1,0 +1,136 @@
+/* --- CONFIGURATION GLOBALE DU BUREAU --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Remplace 'windows-xp-bg.jpg' par le nom de ton image de fond (les collines Bliss) */
+    background-image: url('windowsxp.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden; /* Empêche le scroll pour garder l'effet bureau fixe */
+    font-family: Tahoma, Arial, sans-serif; /* La police classique de l'époque */
+    user-select: none; /* Évite de sélectionner le texte des icônes par erreur */
+}
+
+/* --- ZONE DU BUREAU & ICÔNES --- */
+#desktop {
+    height: calc(100vh - 30px); /* Prend tout l'écran moins la hauteur de la barre des tâches */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; /* Permet aux icônes de passer à la colonne suivante si besoin */
+    align-content: flex-start;
+    gap: 20px;
+}
+
+.desktop-icon {
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px dotted transparent;
+    border-radius: 3px;
+}
+
+/* Effet au survol des icônes */
+.desktop-icon:hover {
+    background-color: rgba(0, 85, 238, 0.2);
+    border-color: rgba(0, 85, 238, 0.4);
+}
+
+.desktop-icon img {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    margin: 0 auto 5px auto;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.6)); /* Petite ombre rétro sur les icônes */
+}
+
+.desktop-icon span {
+    color: white;
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 2px black; /* Ombre de texte pour qu'il reste lisible sur le fond */
+    word-break: break-word;
+}
+
+/* --- BARRE DES TÂCHES (STYLE XP CLASSIC) --- */
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    /* Le fameux dégradé de bleu de la barre des tâches Windows XP */
+    background: linear-gradient(to bottom, #245ded 0%, #1032c6 50%, #0b24a1 100%);
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #5a82fc;
+    z-index: 9999;
+}
+
+/* --- BOUTON DÉMARRER --- */
+#start-btn {
+    height: 100%;
+    background: linear-gradient(to bottom, #3cbe3c 0%, #248a24 50%, #1c6d1c 100%); /* Le vert XP iconique */
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 0 12px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 0px rgba(255,255,255,0.4);
+}
+
+#start-btn:hover {
+    background: linear-gradient(to bottom, #45d145 0%, #299c29 50%, #207a20 100%);
+}
+
+#start-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+#start-btn span {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+
+/* --- ZONE DES FENÊTRES OUVERTES --- */
+#taskbar-windows {
+    flex-grow: 1;
+    display: flex;
+    padding: 0 5px;
+    gap: 4px;
+}
+
+.taskbar-item {
+    background: linear-gradient(to bottom, #3c72ef 0%, #1a4bc5 50%, #153c9b 100%);
+    border: 1px solid #08218a;
+    border-radius: 3px;
+    padding: 0 10px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.8rem;
+    min-width: 120px;
+    max-width: 150px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 0px rgba(255,255,255,0.3);
+}
+
+.taskbar-item.active {
+    background: linear-gradient(to bottom, #1a4bc5 0%, #0d2c82 50%, #0a216b 100%);
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.4);
+}
+
